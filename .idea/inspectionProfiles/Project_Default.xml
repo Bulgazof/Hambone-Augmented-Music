@@ -1,6 +1,10 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+<<<<<<< HEAD
     <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+=======
+    <inspection_tool class="PyAttributeOutsideInitInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+>>>>>>> 9ef30fef3838a24ee431b9ef6b0b5360af7cfba0
   </profile>
 </component>
