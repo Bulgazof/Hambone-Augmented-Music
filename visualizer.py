@@ -6,6 +6,7 @@ import codecs
 ser = serial.Serial('COM6', 9600)
 py.init()
 
+
 screen = py.display.set_mode(size=(300, 300))
 py.display.set_caption("Ur mom")
 
