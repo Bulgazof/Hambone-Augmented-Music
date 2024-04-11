@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (venv)" project-jdk-type="Python SDK" />
+=======
   <component name="Black">
     <option name="sdkName" value="Pipenv (Hambone-Augmented-Music)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (Hambone-Augmented-Music)" project-jdk-type="Python SDK" />
+>>>>>>> 9ef30fef3838a24ee431b9ef6b0b5360af7cfba0
 </project>
