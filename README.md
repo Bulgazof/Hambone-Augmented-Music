@@ -17,6 +17,7 @@ The organization of the files goes as follows
   *   Folder - Training sets (the actual raw JSON files collected from training sessions)
   *   File - DataProcessing_CNN.py (Turns Training set stuff into usable frame json)
   *   File - DataProcessing_LSTM.py (Turns Training set stuff into usable frame csv)
+  *   File - NewDataCollection.py (Used to collect the raw data with labels)
 * Folder - Legacy (Bunch of misc testing stuff)
 * Folder - SoundController (Sound Samples)
   *   File - SoundController.py (Testing for keyboard based sound playing)
