@@ -23,9 +23,7 @@ const byte adjust = 25;
 
 // Define the data type to store in the buffer
 struct SensorData {
-  int label
-  int thresh
-  int acc;
+  int label int thresh int acc;
   int x;
   int y;
   int z;
@@ -100,7 +98,7 @@ void loop() {
   int mag = round(sqrt(xMap * xMap + yMap * yMap + zMap * zMap));
 
   // Create a sensor data object to store readings
-  SensorData data = {thresh, mag, xMap, yMap, zMap };
+  SensorData data = { thresh, mag, xMap, yMap, zMap , };
   addSensorData(data);
 
   // Impact detection logic (using latest data)
@@ -109,9 +107,9 @@ void loop() {
     while (!sensorBuffer.isEmpty() && i < 50) {
       SensorData latestData = sensorBuffer.pop();
       Serial.print("0, ")
-      Serial.print(latestData.acc);
+        Serial.print(latestData.acc);
       Serial.print(", ")
-      Serial.print(latestData.acc);
+        Serial.print(latestData.acc);
       Serial.print(", ");
       Serial.print(latestData.x);
       Serial.print(", ");
@@ -120,7 +118,7 @@ void loop() {
       Serial.println(latestData.z);
       i++;
     }
-  impactDisplay(mag);
+    impactDisplay(mag);
   }
   Serial.println("");
 
@@ -149,20 +147,19 @@ void tuningDisplay() {
   delay(500);
 }
 
-void impactDisplay(int magnitude){
+void impactDisplay(int magnitude) {
   int mappedValue = 0;
-  
-  if(magnitude>MAX_READING){
+
+  if (magnitude > MAX_READING) {
     mappedValue = 5;
-  }
-  else{
+  } else {
     mappedValue = map(magnitude, 0, MAX_READING, 1, 5);
   }
   ledDisplay(mappedValue);
   delay(125);
 }
 
-void ledDisplay(int value){
+void ledDisplay(int value) {
   switch (value) {
     case 1:
       leds[0] = CRGB::Red;
