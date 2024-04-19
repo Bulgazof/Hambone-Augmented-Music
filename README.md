@@ -10,7 +10,7 @@ Below is a diagram of the overall layout of the devices used for the project.  T
 ## Software Overview
 The organization of the files goes as follows
 
-* Folder - CompletedTrainingCode (Software for the TinyML Board)
+* Folder - CompletedTrainingCode (Software collecting data on ESP)
 * Folder - Data_Processing (Code for processing the raw data for use in training either the CNN or LSTM model)
   *   Folder - Raw_csvs (Used for data processing)
   *   Folder - Temp (Just temp stuff, feel free to ignore)
@@ -26,6 +26,7 @@ The organization of the files goes as follows
 * File - Hamboner_V1_MainCode.py (The compiled code for actually connecting to the V1 and playing sounds with it
 * File - Saved_CNN.py (Testing Saved)
 * File - Saved_LSTM.py (Testing Saved)
+* File - Hamboner_V1_ESP32S2 (Software for the TinyML Board)
 
 ## Code Structure
 <img width="1018" alt="Screenshot 2024-04-18 at 23 08 17" src="https://github.com/Bulgazof/Hambone-Augmented-Music/assets/139565723/e67c25ca-c7d5-4927-9db7-833e252f2751">
