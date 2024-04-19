@@ -26,3 +26,6 @@ The organization of the files goes as follows
 * File - Hamboner_V1_MainCode.py (The compiled code for actually connecting to the V1 and playing sounds with it
 * File - Saved_CNN.py (Testing Saved)
 * File - Saved_LSTM.py (Testing Saved)
+
+## Code Structure
+<img width="1018" alt="Screenshot 2024-04-18 at 23 08 17" src="https://github.com/Bulgazof/Hambone-Augmented-Music/assets/139565723/e67c25ca-c7d5-4927-9db7-833e252f2751">
