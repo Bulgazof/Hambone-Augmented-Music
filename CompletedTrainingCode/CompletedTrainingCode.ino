@@ -12,18 +12,28 @@
 
 #define pin_button2 47
 
+int PotVcc = 12;
+int PotGnd = 11;
+int AnalogPot = 1;
+
 Adafruit_MPU6050 mpu;
 
 //threshold for detecting an impact
 int impactThreshold = 350;
+//
+int oldThreshold = impactThreshold;
+
 // Define the size of the circular buffer
 const int bufferSize = 100;
 //Used for increasing the adjustment interval
 const byte adjust = 25;
 
+
 // Define the data type to store in the buffer
 struct SensorData {
-  int label int thresh int acc;
+  int label;
+  int thresh;
+  int acc;
   int x;
   int y;
   int z;
@@ -49,6 +59,10 @@ void setup() {
   pinMode(pin_button1, INPUT_PULLUP);
   pinMode(pin_button2, INPUT_PULLUP);
 
+  //Potmeter stuff
+  pinMode(PotVcc, OUTPUT);
+  pinMode(PotGnd, OUTPUT);
+
   //Accelerometer Stuff
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
@@ -61,27 +75,34 @@ void setup() {
 }
 
 void loop() {
-  if (!digitalRead(pin_button1)) {
-    int sum = 0;
-    for (int i = 0; i < 8; i++) {
-      sum += !digitalRead(pin_button1);
-    }
-    if (sum == 8 && impactThreshold < MAX_READING) {
-      impactThreshold += adjust;
-    }
+  // if (!digitalRead(pin_button1)) {
+  //   int sum = 0;
+  //   for (int i = 0; i < 8; i++) {
+  //     sum += !digitalRead(pin_button1);
+  //   }
+  //   if (sum == 8 && impactThreshold < MAX_READING) {
+  //     impactThreshold += adjust;
+  //   }
+  //   tuningDisplay();
+  // }
+
+  // if (!digitalRead(pin_button2)) {
+  //   int sum = 0;
+  //   for (int i = 0; i < 8; i++) {
+  //     sum += !digitalRead(pin_button2);
+  //   }
+  //   if (sum == 8 && impactThreshold > 0) {
+  //     impactThreshold -= adjust;
+  //   }
+  //   tuningDisplay();
+  // }
+
+  int analogValue = map(analogRead(1), 0, 4094, 50, MAX_READING);
+  if (abs(analogValue-impactThreshold)>50){
+    impactThreshold = analogValue;
     tuningDisplay();
   }
 
-  if (!digitalRead(pin_button2)) {
-    int sum = 0;
-    for (int i = 0; i < 8; i++) {
-      sum += !digitalRead(pin_button2);
-    }
-    if (sum == 8 && impactThreshold > 0) {
-      impactThreshold -= adjust;
-    }
-    tuningDisplay();
-  }
   /* Get new sensor events with the readings */
 
   sensors_event_t a, g, temp;
